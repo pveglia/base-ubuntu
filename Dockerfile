@@ -41,5 +41,8 @@ ADD https://bootstrap.pypa.io/get-pip.py /tmp/
 RUN python /tmp/get-pip.py
 
 # python requirements
-ADD requirements*.txt /tmp/
-RUN pip install -r /tmp/requirements-dev.txt
+RUN mkdir /code
+ADD requirements*.txt package.json /code/
+RUN pip install -r /code/requirements-dev.txt
+
+RUN npm install -g npm && cd /code && npm install
