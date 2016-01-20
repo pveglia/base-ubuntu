@@ -43,6 +43,6 @@ RUN python /tmp/get-pip.py
 # python requirements
 RUN mkdir /code
 ADD requirements*.txt package.json /code/
-RUN pip install -r /code/requirements-dev.txt
+RUN pip install -r /code/requirements-dev.txt --ignore-installed
 
 RUN npm install -g npm && cd /code && npm install
